@@ -1,3 +1,4 @@
+USE defaultdb;
 -- MySQL dump 10.13  Distrib 5.7.28, for Win64 (x86_64)
 --
 -- Host: l3855uft9zao23e2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com    Database: azmszdk4w6h5j1o6
@@ -76,7 +77,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`accounts_BEFORE_UPDATE` BEFORE UPDATE ON `accounts` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`accounts_BEFORE_UPDATE` BEFORE UPDATE ON `accounts` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -132,7 +133,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`addresses_BEFORE_UPDATE` BEFORE UPDATE ON `addresses` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`addresses_BEFORE_UPDATE` BEFORE UPDATE ON `addresses` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -229,7 +230,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`evaluates_AFTER_INSERT` AFTER INSERT ON `evaluates` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`evaluates_AFTER_INSERT` AFTER INSERT ON `evaluates` FOR EACH ROW
 BEGIN
 	-- tính trung bình của tất cả các đánh giá
     DECLARE _voteAvg float default 0;
@@ -252,7 +253,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`evaulates_BEFORE_UPDATE` BEFORE UPDATE ON `evaluates` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`evaulates_BEFORE_UPDATE` BEFORE UPDATE ON `evaluates` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -275,7 +276,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`evaluates_AFTER_UPDATE` AFTER UPDATE ON `evaluates` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`evaluates_AFTER_UPDATE` AFTER UPDATE ON `evaluates` FOR EACH ROW
 BEGIN
 	-- tính trung bình của tất cả các đánh giá
     DECLARE _voteAvg float default 0;
@@ -330,7 +331,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`favorites_BEFORE_UPDATE` BEFORE UPDATE ON `favorites` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`favorites_BEFORE_UPDATE` BEFORE UPDATE ON `favorites` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -389,7 +390,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`images_BEFORE_UPDATE` BEFORE UPDATE ON `images` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`images_BEFORE_UPDATE` BEFORE UPDATE ON `images` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -477,7 +478,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`noticeto_BEFORE_UPDATE` BEFORE UPDATE ON `noticeto` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`noticeto_BEFORE_UPDATE` BEFORE UPDATE ON `noticeto` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -533,7 +534,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`notifications_BEFORE_UPDATE` BEFORE UPDATE ON `notifications` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`notifications_BEFORE_UPDATE` BEFORE UPDATE ON `notifications` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -586,7 +587,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`orderdetails_BEFORE_UPDATE` BEFORE UPDATE ON `orderdetails` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`orderdetails_BEFORE_UPDATE` BEFORE UPDATE ON `orderdetails` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -654,7 +655,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`orders_BEFORE_UPDATE` BEFORE UPDATE ON `orders` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`orders_BEFORE_UPDATE` BEFORE UPDATE ON `orders` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -712,7 +713,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`paymethod_BEFORE_UPDATE` BEFORE UPDATE ON `paymethod` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`paymethod_BEFORE_UPDATE` BEFORE UPDATE ON `paymethod` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -774,7 +775,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`posts_BEFORE_UPDATE` BEFORE UPDATE ON `posts` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`posts_BEFORE_UPDATE` BEFORE UPDATE ON `posts` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -833,7 +834,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`schedules_BEFORE_UPDATE` BEFORE UPDATE ON `schedules` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`schedules_BEFORE_UPDATE` BEFORE UPDATE ON `schedules` FOR EACH ROW
 BEGIN
 	IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -986,7 +987,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`tours_AFTER_INSERT` AFTER INSERT ON `tours` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`tours_AFTER_INSERT` AFTER INSERT ON `tours` FOR EACH ROW
 BEGIN
 INSERT INTO schedules(`data`, `idTour`)
         VALUES('<h3>Hi, You can start editing your travel schedule</h3>', NEW.idTour);
@@ -1007,7 +1008,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`tours_BEFORE_UPDATE` BEFORE UPDATE ON `tours` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 =`vke6ut5wnkjh7y47`@`%`*/ /*!50003 TRIGGER `azmszdk4w6h5j1o6`.`tours_BEFORE_UPDATE` BEFORE UPDATE ON `tours` FOR EACH ROW
 BEGIN
 IF new.statusAction = 'edited' THEN
         SET new.dateEdited = current_time();
@@ -1041,7 +1042,7 @@ ALTER DATABASE `azmszdk4w6h5j1o6` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetEvaluateById`(p_id INT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetEvaluateById`(p_id INT)
 BEGIN
 	select * from evaluates, accounts
 	where evaluates.idAccount = accounts.idAccount
@@ -1064,7 +1065,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetEvaluateByIdTour`(p_idTour INT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetEvaluateByIdTour`(p_idTour INT)
 BEGIN
 	select * from evaluates, accounts
 	where evaluates.idAccount = accounts.idAccount
@@ -1087,7 +1088,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetNoticeToWithIdAccount`(_idAccount int)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetNoticeToWithIdAccount`(_idAccount int)
 BEGIN
 	SELECT idNoticeTo, notifications.title, notifications.contentNotification, notifications.type, 
 	noticeto.status, notifications.dateTime, noticeto.idAccount, 
@@ -1113,7 +1114,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetReport`()
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetReport`()
 BEGIN
 	DECLARE v_day_end_month nvarchar(100) DEFAULT LAST_DAY(now());
 	DECLARE v_month nvarchar(100) DEFAULT MONTH(now());
@@ -1158,7 +1159,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetReportDestinationByTime`(p_datetime nvarchar(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetReportDestinationByTime`(p_datetime nvarchar(100))
 BEGIN
 	DECLARE v_day_end_month nvarchar(100) DEFAULT LAST_DAY(p_datetime);
 	DECLARE v_month nvarchar(100) DEFAULT MONTH(p_datetime);
@@ -1189,7 +1190,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetTimelineByIdTour`(p_idTour INT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetTimelineByIdTour`(p_idTour INT)
 BEGIN
 	select * from timelines
 	where timelines.idTour = p_idTour
@@ -1211,7 +1212,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetYearFirstNewOrder`()
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetYearFirstNewOrder`()
 BEGIN
 	SELECT YEAR(dateAdded) as dateOldest FROM azmszdk4w6h5j1o6.orders
     order by dateAdded asc limit 1;
@@ -1234,7 +1235,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetYearFirstNewTour`()
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spGetYearFirstNewTour`()
 BEGIN
 	SELECT YEAR(dateAdded) as dateOldest FROM azmszdk4w6h5j1o6.tours
     order by dateAdded asc limit 1;
@@ -1257,7 +1258,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spPaginationNotification`(_limit int, _offset int)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spPaginationNotification`(_limit int, _offset int)
 BEGIN
 	SELECT * FROM azmszdk4w6h5j1o6.notifications
 	where statusAction <> 'deleted'
@@ -1281,7 +1282,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportNumberOfTourists`()
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportNumberOfTourists`()
 BEGIN
 	SELECT count(*) as personal FROM azmszdk4w6h5j1o6.orders
     WHERE orders.travelerType = 'personal'
@@ -1318,7 +1319,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportNumberPeopleFollowDestination`(v_year nvarchar(100), v_destination nvarchar(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportNumberPeopleFollowDestination`(v_year nvarchar(100), v_destination nvarchar(100))
 BEGIN
 	DECLARE v_timeFirst1 nvarchar(100) DEFAULT concat(v_year,'-', '1' ,'-','1');
     DECLARE v_timeEnd1 nvarchar(100) DEFAULT LAST_DAY(v_timeFirst1);
@@ -1455,7 +1456,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportNumberPeopleFollowDestinationAll`(v_year int, v_now int)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportNumberPeopleFollowDestinationAll`(v_year int, v_now int)
 BEGIN
     loop_label:  LOOP
         IF  v_year > v_now THEN 
@@ -1490,7 +1491,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportRevenueFollowMonth`(v_year nvarchar(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportRevenueFollowMonth`(v_year nvarchar(100))
 BEGIN
 	DECLARE v_timeFirst1 nvarchar(100) DEFAULT concat(v_year,'-', '1' ,'-','1');
     DECLARE v_timeEnd1 nvarchar(100) DEFAULT LAST_DAY(v_timeFirst1);
@@ -1592,7 +1593,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportRevenueFollowMonthAll`(v_year int, v_now int)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spReportRevenueFollowMonthAll`(v_year int, v_now int)
 BEGIN
 	loop_label:  LOOP
 	IF  v_year > v_now THEN 
@@ -1619,7 +1620,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineNotification`(p_search VARCHAR(100),p_dayStart DATETIME)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineNotification`(p_search VARCHAR(100),p_dayStart DATETIME)
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT * FROM azmszdk4w6h5j1o6.notifications 
@@ -1643,7 +1644,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineNotificationByContent`(p_search VARCHAR(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineNotificationByContent`(p_search VARCHAR(100))
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
@@ -1666,7 +1667,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineNotificationByTitle`(p_search VARCHAR(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineNotificationByTitle`(p_search VARCHAR(100))
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
@@ -1689,7 +1690,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEnginePost`(p_search VARCHAR(100), p_vote INT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEnginePost`(p_search VARCHAR(100), p_vote INT)
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
@@ -1713,7 +1714,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEnginePostByContent`(p_search VARCHAR(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEnginePostByContent`(p_search VARCHAR(100))
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
@@ -1736,7 +1737,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineService`(p_search VARCHAR(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineService`(p_search VARCHAR(100))
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT * FROM azmszdk4w6h5j1o6.services 
@@ -1758,7 +1759,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTag`(p_search VARCHAR(100))
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTag`(p_search VARCHAR(100))
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT * FROM azmszdk4w6h5j1o6.tags 
@@ -1780,7 +1781,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTimeline`(p_search VARCHAR(100),p_date DATETIME)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTimeline`(p_search VARCHAR(100),p_date DATETIME)
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT * FROM azmszdk4w6h5j1o6.timelines 
@@ -1804,7 +1805,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTour`(p_search VARCHAR(100),p_dayStart DATETIME,p_dayEnd DATETIME, p_price FLOAT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTour`(p_search VARCHAR(100),p_dayStart DATETIME,p_dayEnd DATETIME, p_price FLOAT)
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
@@ -1836,7 +1837,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTourByAddress`(p_search VARCHAR(100),p_dayStart DATETIME,p_dayEnd DATETIME, p_price FLOAT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTourByAddress`(p_search VARCHAR(100),p_dayStart DATETIME,p_dayEnd DATETIME, p_price FLOAT)
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
@@ -1862,7 +1863,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTourByName`(p_search VARCHAR(100),p_dayStart DATETIME,p_dayEnd DATETIME, p_price FLOAT)
+CREATE =`vke6ut5wnkjh7y47`@`%` PROCEDURE `spSearchEngineTourByName`(p_search VARCHAR(100),p_dayStart DATETIME,p_dayEnd DATETIME, p_price FLOAT)
 BEGIN
 	DECLARE v_likeSearch VARCHAR(100) DEFAULT Concat('%',p_search,'%');
 	SELECT *
