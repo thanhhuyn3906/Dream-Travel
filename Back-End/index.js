@@ -16,20 +16,6 @@ app.use(bodyParser.json());
 // app.use(cookieParser(process.env.SECRET));
 app.use(cookieParser("ithoangtansecurity"));
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization, Content-Language, Accept-Language, Last-Event-ID, X-Requested-With"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "OPTIONS, HEAD, GET, POST, PUT, PATCH, DELETE"
-  );
-  res.setHeader("credentials", true); // required to pass);
-
-  next();
-});
 
 app.use((error, req, res, next) => {
   const status = error.statusCode || 500;
@@ -53,24 +39,8 @@ const corsOptions = {
   // "Content-Type, Authorization, Content-Language, Accept-Language, Last-Event-ID, X-Requested-With"
 };
 
-if (process.env.NODE_ENV === "production") {
-  app.use(
-    cors({
-      origin: [
-        process.env.FRONT_END,
-        process.env.ADMIN_FRONT_END,
-        "http://localhost:9000",
-        "http://localhost:9999",
-        "https://localhost:9000",
-        "https://localhost:9999",
-      ],
-      methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS,PUT",
-      credentials: true, // required to pass
-    })
-  );
-} else {
-  app.use(cors(corsOptions));
-}
+// Thay thế toàn bộ cụm if/else cũ bằng dòng này:
+app.use(cors());
 
 app.use("/", require("./routes/api"));
 
