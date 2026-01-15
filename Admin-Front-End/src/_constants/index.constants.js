@@ -2,7 +2,7 @@ import React from "react";
 import { Spin } from "antd";
 
 require("dotenv").config();
-export const API_ENDPOINT = "https://dream-travel-api.onrender.com";
+export const API_ENDPOINT = "https://dream-travel-o0yf.onrender.com";
 // export const API_ENDPOINT = process.env.API_ENDPOINT;
 // export const API_ENDPOINT = "http://localhost:8000";
 // export const API_ENDPOINT = "https://api-kinhdoanhtourdulich.herokuapp.com";
