@@ -1,4 +1,5 @@
-const mysql = require("mysql");
+// Đổi từ mysql -> mysql2
+const mysql = require("mysql2");
 
 class Database {
   constructor(config) {
@@ -29,13 +30,16 @@ class Database {
   }
 }
 
-// Cấu hình chuẩn dùng chung
 const config = {
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASSWORD || "123456",
   database: process.env.DB_NAME || "defaultdb",
   port: process.env.DB_PORT || 3306,
+  // Thêm cấu hình SSL
+  ssl: {
+    rejectUnauthorized: false
+  }
 };
 
 const database = new Database(config);
