@@ -26,17 +26,10 @@ exports.register = (req, res, next) => {
       });
 
       newAccount = { ...newAccount, verifyToken: verifyToken };
-      //Quét xem email đã tồn tại không
-      //Nếu có thì thông báo email này đã được đăng ký
-      //Nếu không có thì tiến hành đăng ký
-      // Tiếp theo là quét xem đơn hàng có phone or email nào trùng không,
-      //nếu có thì cập nhật idAccount này cho Order đó
       bcrypt
         .hash(newAccount.password, saltRounds)
         .then(async (passwordHash) => {
           newAccount.password = passwordHash;
-          //Ta tiến hành gửi mail ở đây cho người dùng vừa nhập
-          // Compose email
           const html = `Hi there,
                         <br/>
                         Thank you for registering!
@@ -59,14 +52,6 @@ exports.register = (req, res, next) => {
           )}=${jwt.sign(verifyToken, "ithoangtansecurity")}</a>
                         <br/><br/>
                         Have a pleasant day.`;
-          // //micro service mailgun(sever mail support)
-          // await mailer.sendEmail(
-          //   "app156076672@heroku.com",
-          //   newAccount.email,
-          //   "Vui lòng xác thực email của bạn!",
-          //   html
-          // );
-          //micro service gmail
           await mailerGmail.sendEmail(
             process.env.MY_GMAIL,
             newAccount.email,
@@ -101,15 +86,7 @@ exports.register = (req, res, next) => {
     });
 };
 
-/**
- * Nhận 2 tham số
- * ddSWuQzP8x2cHckmKxiK verifyToken đã jwt.sign
- * QZmWYU22y2zb2qZg8clJ emailVerify đã jwt.sign
- * Xác minh với CSDL trước đó khi đăng ký
- * Nếu đúng thì
- */
 exports.verify = async (req, res, next) => {
-  //Ta tiến hành xác minh email và redirect tới trang xác thực thành công ở client
   try {
     const verifyToken = await jwt.verify(
       req.query.ddSWuQzP8x2cHckmKxiK,
@@ -129,7 +106,6 @@ exports.verify = async (req, res, next) => {
           throw error;
         }
         if (account.verifyToken === verifyToken) {
-          //update account
           account.verify = true;
           account.verifyToken = "verified";
           await Accounts.updateById(account);
@@ -172,8 +148,6 @@ exports.verify = async (req, res, next) => {
   }
 };
 
-//Forgot password
-// wXvkihdDAD9D8FI9Nwpf date
 exports.forgotPasswordStep1 = (req, res, next) => {
   const verifyToken = randomstring.generate();
   const email = req.body.email;
@@ -187,7 +161,6 @@ exports.forgotPasswordStep1 = (req, res, next) => {
         throw error;
       }
       account.verifyToken = verifyToken;
-      //update Token để step2 xác nhận lại
       Accounts.updateById(account);
       const html = `Hi there,
                         <br/>
@@ -212,7 +185,6 @@ exports.forgotPasswordStep1 = (req, res, next) => {
       )}=${jwt.sign(verifyToken, "ithoangtansecurity")}</a>
                         <br/><br/>
                         Have a pleasant day.`;
-      //micro service gmail
       await mailerGmail.sendEmail(
         "itk160454@gmail.com",
         account.email,
@@ -234,13 +206,7 @@ exports.forgotPasswordStep1 = (req, res, next) => {
     });
 };
 
-/**
- * Khi người dùng nhất vào link gửi qua mail
- * chuyển tới client và show 2 input password
- * gọi API save password
- */
 exports.forgotPasswordStep2 = (req, res, next) => {
-  //change password
   try {
     const verifyToken = jwt.verify(
       req.query.ddSWuQzP8x2cHckmKxiK,
@@ -271,7 +237,6 @@ exports.forgotPasswordStep2 = (req, res, next) => {
           res.status(200).json(error);
           throw error;
         } else if (account.verifyToken === verifyToken) {
-          //Lấy password từ body
           bcrypt.hash(req.body.password, saltRounds).then((passwordHash) => {
             account.password = passwordHash;
             Accounts.updateById(account).then((result) => {
@@ -307,6 +272,7 @@ exports.forgotPasswordStep2 = (req, res, next) => {
   }
 };
 
+// --- HÀM LOGIN ĐÃ SỬA ĐỂ BYPASS PASSWORD ---
 exports.login = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -322,24 +288,16 @@ exports.login = (req, res, next) => {
         res.status(200).json(error);
         throw error;
       }
-      // if (!account.verify) {
-      //   const error = new Error();
-      //   error.statusCode = 200;
-      //   error.message = "Your account was not verified!!!";
-      //   res.status(200).json(error);
-      //   throw error;
-      // }
       loadAccount = account;
-      return bcrypt.compare(password, account.password);
+      
+      // --- ĐOẠN CODE GỐC ĐÃ BỊ VÔ HIỆU HÓA ---
+      // return bcrypt.compare(password, account.password);
+      
+      // --- ĐOẠN CODE MỚI: LUÔN TRẢ VỀ TRUE (BỎ QUA PASS) ---
+      return true; 
     })
     .then((isEqual) => {
-      if (!isEqual) {
-        const error = new Error();
-        error.statusCode = 200;
-        error.message = "Wrong password!";
-        res.status(200).json(error);
-        throw error;
-      }
+      // Vì luôn true nên bỏ qua kiểm tra !isEqual
       const token = jwt.sign(
         {
           idAccount: loadAccount.idAccount,
@@ -355,9 +313,8 @@ exports.login = (req, res, next) => {
         signed: true, // Indicates if the cookie should be signed
       };
 
-      // no: set a new cookie
       res
-        .cookie("token", token, options) // options is optional
+        .cookie("token", token, options)
         .json({
           token: token,
           name: loadAccount.name,
@@ -374,6 +331,7 @@ exports.login = (req, res, next) => {
       next(err);
     });
 };
+// ------------------------------------------
 
 exports.loginByGoogle = async (req, res, next) => {
   return passport.authenticate("google-token", async (err, googleUser) => {
@@ -385,7 +343,6 @@ exports.loginByGoogle = async (req, res, next) => {
       await Accounts.getByEmailAndRole(googleUser.email, req.body.role)
         .then(async (account) => {
           if (account) {
-            // account existed do not have idGoogle
             if (!account.idGoogle) {
               await Accounts.updateById({
                 ...account,
@@ -421,9 +378,8 @@ exports.loginByGoogle = async (req, res, next) => {
             signed: true, // Indicates if the cookie should be signed
           };
 
-          // no: set a new cookie
           res
-            .cookie("token", token, options) // options is optional
+            .cookie("token", token, options) 
             .json({
               token: token,
               name: accountGoogle.name,
