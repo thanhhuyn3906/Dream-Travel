@@ -1,33 +1,24 @@
 var mysql = require("mysql");
 
-//Tạm thời sẽ dùng callback cho các controller image, schedule, tour
-//Các controller khác ta sẽ dùng mysql with Promise code trong file dbconnectMySql.js
-
+// Cấu hình kết nối thông minh: Tự động lấy từ Render (biến môi trường) hoặc dùng Localhost nếu chạy ở máy
 const config = {
-  host: "localhost",
-  user: "root",
-  port: "3306",
-  password: "123456",
-  database: "azmszdk4w6h5j1o6",
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "123456", // Pass mặc định khi test local
+  database: process.env.DB_NAME || "defaultdb",  // Tên DB chuẩn
+  port: process.env.DB_PORT || 3306,
+  multipleStatements: true // Cho phép chạy nhiều câu lệnh SQL cùng lúc
 };
-const configHerokuTest = {
-  host: "l3855uft9zao23e2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  user: "vke6ut5wnkjh7y47",
-  port: "3306",
-  password: "x18ifcnupo42ey8j",
-  database: "azmszdk4w6h5j1o6",
-};
-const configProduction = {
-  host: process.env.JAWSDB_HOST,
-  user: process.env.JAWSDB_USERNAME,
-  port: process.env.JAWSDB_PORT,
-  password: process.env.JAWSDB_PASSWORD,
-  database: process.env.JAWSDB_DATABASE,
-};
-const connection =
-  process.env.NODE_ENV === "production"
-    ? mysql.createConnection(configProduction)
-    : mysql.createConnection(configHerokuTest);
-// : mysql.createConnection(configHerokuTest);
+
+const connection = mysql.createConnection(config);
+
+// Log ra màn hình để biết có kết nối được không
+connection.connect(function(err) {
+  if (err) {
+    console.error('❌ [dbconnection] Lỗi kết nối Database: ' + err.stack);
+    return;
+  }
+  console.log('✅ [dbconnection] Đã kết nối Database thành công (Thread ID: ' + connection.threadId + ')');
+});
 
 module.exports = connection;
