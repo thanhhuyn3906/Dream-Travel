@@ -479,8 +479,12 @@ export default class Navigation extends Component {
             id="ftco-navbar"
          >
             {this.haveRedirect()}
-            <Link to="/" className="navbar-brand">
-               Dream Travel 
+            <Link to="/">
+               <img
+                  src="/logo192.png"
+                  alt="Tours"
+                  className="ht-logo-nav"
+               ></img>
             </Link>
             <button
                className="navbar-toggler"
